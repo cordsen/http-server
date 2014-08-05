@@ -17,6 +17,7 @@ if (argv.h || argv.help) {
     "  -i                 Display autoIndex [true]",
     "  -e --ext           Default file extension if none supplied [none]",
     "  -s --silent        Suppress log messages from output",
+    "  -g --singlePage    Run in single page app mode",
     "  --cors             Enable CORS via the 'Access-Control-Allow-Origin' header",
     "  -o                 Open browser window after staring the server",
     "  -c                 Set cache time (in seconds). e.g. -c10 for 10 seconds.",
@@ -53,6 +54,7 @@ function listen(port) {
     cache: argv.c,
     showDir: argv.d,
     autoIndex: argv.i,
+    singlePage: argv.g || argv.singlePage,
     ext: argv.e || argv.ext,
     logFn: requestLogger
   };
@@ -63,7 +65,7 @@ function listen(port) {
 
   var server = httpServer.createServer(options);
   server.listen(port, host, function() {
-    log('Starting up http-server, serving '.yellow
+    log('Starting sup http-server, serving '.yellow
       + server.root.cyan
       + ' on port: '.yellow
       + port.toString().cyan);

@@ -1,3 +1,10 @@
 node_modules/*
 !node_modules/node-static
 npm-debug.log 
+
+#OS junk files
+[Tt]humbs.db
+*.DS_Store
+
+#webstorm project files
+.idea/
